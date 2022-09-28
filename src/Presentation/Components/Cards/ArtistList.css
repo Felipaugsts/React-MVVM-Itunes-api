@@ -1,0 +1,46 @@
+.card-list { 
+    padding: 20;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list-item { 
+     cursor: pointer;
+    display: flex; 
+    justify-content: space-between;
+    padding: 20;
+    border: 1px solid black;
+    width: 350px;
+    height: 120px;
+    margin: 10px;
+    border-radius: 15px;
+}
+.list-info { 
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+img { 
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.title { 
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.album { 
+    font-weight: 400;
+    margin-bottom: 3px;
+}
+.price { 
+    font-weight: 600;
+}
+

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ViewModel from "./ViewModel";
+import ArtistList from "../../Components/Cards/ArtistList";
 
 export default function ProductList() {
   const { artists, getArtist } = ViewModel();
@@ -13,7 +14,11 @@ export default function ProductList() {
       <div>
         <h2>Artists</h2>
       </div>
-      {console.log("artist controller", artists)}
+      <div style={{
+        width: "100vw",
+      }}>
+        <ArtistList data={artists} />
+      </div>
     </div>
   );
 }
