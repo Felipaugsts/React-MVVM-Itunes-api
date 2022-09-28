@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import ArtistList from "./Presentation/Views/HomeView/ArtistList";
+import ArtistList from "../Views/HomeView/ArtistList";
 
 function App() {
   return (
