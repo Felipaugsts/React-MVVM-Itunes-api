@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import ArtistList from "./Presentation/Views/HomeView/ArtistList";
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<ArtistList />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
