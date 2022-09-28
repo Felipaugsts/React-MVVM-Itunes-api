@@ -1,0 +1,23 @@
+
+
+.input-field {
+margin-bottom: 70px;
+width: 300px;
+height: 50px;
+padding-left: 30px;
+border-radius: 20px;
+border: 1px solid gray;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+.field-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.field-icon {
+  width: 45px;
+  height: 45px;
+}

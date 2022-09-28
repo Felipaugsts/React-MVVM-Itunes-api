@@ -1,24 +1,51 @@
 import React, { useEffect } from "react";
 import ViewModel from "./ViewModel";
 import ArtistList from "../../Components/Cards/ArtistList";
+import TextField from "../../Components/TextField/TextField";
+import Pagination from "../../Components/Pagination/Pagination";
 
 export default function ProductList() {
-  const { artists, getArtist } = ViewModel();
+  const {
+    startSearch,
+    searchChange,
+    currentArtists,
+    artists,
+    getArtist,
+    isLoading,
+    postsPerPage,
+    paginate,
+  } = ViewModel();
 
   useEffect(() => {
     getArtist("michael")
   }, []);
 
   return (
-    <div className="page">
+    <div
+      className="page"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <div>
         <h2>Artists</h2>
       </div>
-      <div style={{
-        width: "100vw",
-      }}>
-        <ArtistList data={artists} />
-      </div>
+      <TextField searchChange={searchChange} keyDown={startSearch} />
+      {isLoading ? (
+        <div>Loading ...</div>
+      ) : (
+        <div style={{ width: "90vw" }}>
+          <ArtistList data={currentArtists} />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={artists.length}
+            paginate={paginate}
+          />
+        </div>
+      )}
     </div>
   );
 }
