@@ -17,7 +17,7 @@ export default function ProductList() {
   } = ViewModel();
 
   useEffect(() => {
-    getArtist("michael")
+    getArtist("");
   }, []);
 
   return (
@@ -36,7 +36,7 @@ export default function ProductList() {
       <TextField searchChange={searchChange} keyDown={startSearch} />
       {isLoading ? (
         <div>Loading ...</div>
-      ) : (
+      ) : currentArtists.length > 0 ? (
         <div style={{ width: "90vw" }}>
           <ArtistList data={currentArtists} />
           <Pagination
@@ -45,6 +45,8 @@ export default function ProductList() {
             paginate={paginate}
           />
         </div>
+      ) : (
+        <h2>Nothing to show</h2>
       )}
     </div>
   );
