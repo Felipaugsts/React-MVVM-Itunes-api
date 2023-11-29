@@ -4,12 +4,12 @@ import ArtistList from "../../Components/Cards/ArtistList";
 import TextField from "../../Components/TextField/TextField";
 import Pagination from "../../Components/Pagination/Pagination";
 
-export default function ProductList() {
+export default function ArtistPage() {
   const {
     startSearch,
     searchChange,
-    currentArtists,
-    artists,
+    currentArtists: displayedArtists,
+    artists: allArtists,
     getArtist,
     isLoading,
     postsPerPage,
@@ -20,28 +20,30 @@ export default function ProductList() {
     getArtist("");
   }, []);
 
+  const pageStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const hasArtists = displayedArtists.length > 0;
+  const showArtists = !isLoading && hasArtists;
+
   return (
-    <div
-      className="page"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="page" style={pageStyle}>
       <div>
         <h2>Artists</h2>
       </div>
       <TextField searchChange={searchChange} keyDown={startSearch} />
       {isLoading ? (
-        <div>Loading ...</div>
-      ) : currentArtists.length > 0 ? (
+        <div>Loading...</div>
+      ) : showArtists ? (
         <div style={{ width: "90vw" }}>
-          <ArtistList data={currentArtists} />
+          <ArtistList data={displayedArtists} />
           <Pagination
             postsPerPage={postsPerPage}
-            totalPosts={artists.length}
+            totalPosts={allArtists.length}
             paginate={paginate}
           />
         </div>
